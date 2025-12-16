@@ -1,0 +1,145 @@
+.feature-card {
+  border-radius: 15px;
+  overflow: hidden;
+  min-height: 420px; /* Taller card */
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+.feature-img {
+  width: 100%;
+  height: 60%; 
+  object-fit: cover;
+  display: block;
+}
+
+/* Lock every room image to 1280x720 display */
+.room-img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 1280:720 = 16:9 */
+  object-fit: cover;
+  background-color: #000; /* prevents white gaps */
+}
+
+
+#roomSelect, .btn {
+  max-width: 250px;
+}
+
+.hero-section {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+} 
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0; /* Start hidden */
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.1));
+  z-index: 1;
+}
+
+/* Sections */
+.menu-section,
+.gallery-section {
+  background: #000;
+}
+
+/* Titles */
+.section-title {
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+.divider {
+  width: 120px;
+  height: 1px;
+  background: #fff;
+  margin: 10px auto 0;
+  opacity: 0.6;
+}
+
+/* Menu Buttons */
+.menu-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.menu-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.menu-btn span {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+}
+
+.menu-btn:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 15px;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Size modifiers */
+.gallery-item.large {
+  grid-column: span 3;
+}
+
+.gallery-item.wide {
+  grid-column: span 2;
+}
+
+.gallery-item.small {
+  grid-column: span 1;
+}
